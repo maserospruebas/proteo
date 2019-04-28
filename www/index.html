@@ -1,19 +1,441 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/gestures.css">
-        <title>Gestures I</title>
-    </head>
-    <body id=body-color>
-      <button id='claro'>CLARO</button>
-      <button id='oscuro'>OSCURO</button>
-      <div id='zona-gestos'> </div>
+﻿<!doctype html>
+<html lang="es" class="h-100">
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/gestures.js"></script>
-        <script type="text/javascript" src="js/hammer.min.js"></script>
-        <script type="text/javascript" src="js/fastclick.js"></script>
-    </body>
+<head>
+    <!-- Required meta tags -->
+    <title>Proteo - Alcion Plasticos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/gestures.css">
+    <link rel="stylesheet" type='text/css' href="css/proteo.css">
+    <title>Hello, world!</title>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <header class="container mb-1">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Alcion Plásticos</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_coex" class="nav-link" href="#">Coex</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_soplado" class="nav-link" href="#">Soplado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_inyeccion" class="nav-link" href="#">Inyección</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_serigrafia" class="nav-link" href="#">Serigrafía</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_todo" class="nav-link" href="#">Todo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_gestos" class="nav-link" href="aindex.html">Gestos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <main class="mt-5">
+
+        <ul class="nav nav-pills  mt-2 mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-coex-tab" data-toggle="pill" href="#pills-coex" role="tab" aria-controls="pills-coex" aria-selected="true">Coex</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-soplado-tab" data-toggle="pill" href="#pills-soplado" role="tab" aria-controls="pills-soplado" aria-selected="false">Soplado</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-inyeccion-tab" data-toggle="pill" href="#pills-inyeccion" role="tab" aria-controls="pills-inyeccion" aria-selected="false">Inyección</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-serigrafia-tab" data-toggle="pill" href="#pills-serigrafia" role="tab" aria-controls="pills-serigrafia" aria-selected="false">Serigrafía</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-todo-tab" data-toggle="pill" href="#pills-todo" role="tab" aria-controls="pills-todo" aria-selected="false">Todo</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane ffade show active" id="pills-coex" role="tabpanel" aria-labelledby="pills-coex-tab">
+                <!-- COEX -->
+                <div id="coex" class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 col-xl-2 px-lg-5">
+                            <h1>Maquina 1450</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 1620</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 1630</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 1640</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 1650</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 1660</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 1670</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 1680</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 1690</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 1700</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 1710</h1>
+                        </div>
+                        <div class="dd-none col-md-3 col-lg-3 col-xl-2">
+                            <!--<h1>Maquina 12</h1> -->
+
+                            <div class="sitem m1620">
+                                <div class="cab_maq produc">
+                                    <strong>1620</strong><br>PRODUCCION
+                                </div>
+                                <strong>MAQ. 62</strong>
+                                <div>
+                                    <strong>OF/OPE:</strong> 118978/1
+                                </div>
+                                <div>
+                                    <strong>ART:</strong> 50378<br>BOTELLA 0817 /842 00250cc COEX 0452/BLA
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN COEX -->
+            </div>
+            <div class="tab-pane ffade" id="pills-soplado" role="tabpanel" aria-labelledby="pills-soplado-tab">
+                <!-- SOPLADO-->
+                <div id="soplado" class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 2420</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 2430</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 2460</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 2470</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 2480</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 2490</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 2500</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 2510</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 2520</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 2530</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 11</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 12</h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN SOPLADO-->
+            </div>
+            <div class="tab-pane ffade" id="pills-inyeccion" role="tabpanel" aria-labelledby="pills-inyeccion-tab">
+                <!-- INYECCION -->
+                <div id="soplado" class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 3230</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 3240</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 3250</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 9750</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 9760</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 6</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 7</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 8</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 9</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 10</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 11</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 12</h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN INYECCION -->
+            </div>
+            <div class="tab-pane ffade" id="pills-serigrafia" role="tabpanel" aria-labelledby="pills-serigrafia-tab">
+                <!-- SERIGRAFIA -->
+                <div id="soplado" class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 4070</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 4080</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 4090</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>DESTAJOS</h1>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h1>VARIOS</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 6</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 7</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 8</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 9</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 10</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 11</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 12</h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN SERIGRAFIA -->
+            </div>
+
+            <div class="tab-pane ffade" id="pills-todo" role="tabpanel" aria-labelledby="pills-todo-tab">
+                <!-- TODO -->
+                <div id="todo" class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 col-xl-2">
+                            <h5>Todas las máquinas en pequeño</h5>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 4080</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 4090</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>DESTAJOS</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>VARIOS</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 6</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 7</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 8</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 9</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 10</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 11</h1>
+                        </div>
+                        <div class="d-none col-md-3 col-lg-3 col-xl-2">
+                            <h1>Maquina 12</h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN TODO -->
+            </div>
+
+
+        </div>
+
+        <div class="container">
+            <div id="objeto">
+
+            </div>
+        </div>
+
+    </main>
+
+
+    <!--MODAL-->
+    <div id="maquinaModal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary text-white  p-2">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <p>Cuerpo del modal</p>
+                </div>
+                <div class="modal-footer p-2">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FIN MODAL-->
+
+    <footer class="footer mt-auto py-0">
+        <div class="container">
+            <span class="text-muted">
+        <p class="m-0 p-1">&copy; Alcion Plásticos S.L. 2019</p>
+      </span>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/visor_json.js"></script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/gestures.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <script type="text/javascript" src="js/fastclick.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            console.log("ready!");
+
+            $('#btn_coex').on('click', function(e) {
+                e.preventDefault()
+                $('#pills-tab li:nth-child(1) a').tab('show');
+            })
+
+            $('#btn_soplado').on('click', function(e) {
+                e.preventDefault()
+                $('#pills-tab li:nth-child(2) a').tab('show');
+            })
+
+            $('#btn_inyeccion').on('click', function(e) {
+                e.preventDefault()
+                $('#pills-tab li:nth-child(3) a').tab('show');
+            })
+
+            $('#btn_serigrafia').on('click', function(e) {
+                e.preventDefault()
+                $('#pills-tab li:nth-child(4) a').tab('show');
+            })
+
+            $('#btn_todo').on('click', function(e) {
+                e.preventDefault()
+                $('#pills-tab li:nth-child(5) a').tab('show');
+            })
+
+            var maq = document.querySelectorAll('.item');
+
+            for (var i = 0; i < maq.length; i++) {
+                maq[i].addEventListener('click', playController);
+            }
+
+        }); //al terminar de cargar
+
+
+        function playController(e) {
+
+            let clase = this.className;
+            clase = '.' + clase.replace(/ /g, ".");
+            let maquina = $(clase).attr("maquina");
+
+            let cuerpo = '<br><p>1 <br></p><p>2 <br></p><p>3 <br></p><p>4 <br></p><p>5 <br></p><p>6 <br></p><p>7 <br></p><p>8 <br></p><p>9 <br></p><p>10<br></p>'
+
+            //funciona
+            //$(clase).html("funciona maquina "+ maquina);
+
+            //alert(clase);
+            //alert('Máquina: ' + maquina);
+
+            $('#maquinaModal').modal('show')
+            $('.modal-body').html('Detalle de la máquina ' + maquina + cuerpo);
+            $('#exampleModalLongTitle').html('MAQUINA ' + maquina);
+
+        }
+
+        //$(document).on('click', '.item', (e) => playController($(e.target).attr("maquina")));
+        //$(document).on('click', '.item2', (e) => playController($(e.target).attr("maquina")));
+        //$(document).on('click', '.item3', (e) => playController($(e.target).attr("maquina")));
+
+        //$('.item').on('click', (e) => playController(e,$(e.target).attr("maquina")));
+        //$('.item2').on('click', (e) => playController(e,$(e.target).attr("maquina")));
+        //$('.item3').on('click', (e) => playController(e,$(e.target).attr("maquina")));
+
+        //$(document).on('click', '.maq', (e) => playController(e,$(e.target).attr("maquina")));
+        //$(document).on('click', '.maq', (e) => playController(e,$(e.target).attr("className")));
+
+        //$(document).on('click', '.maq', playController);
+    </script>
+
+</body>
+
 </html>
