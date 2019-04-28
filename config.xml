@@ -12,7 +12,7 @@
 
     <access origin="*" browserOnly="true" subdomains="true" />
 
-   <plugin name="InAppBrowser" value="CDVInAppBrowser" />
+   <!--<plugin name="InAppBrowser" value="CDVInAppBrowser" />-->
 
    <!--<gap:plugin name="org.apache.cordova.inappbrowser" />-->
 
