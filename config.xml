@@ -14,7 +14,7 @@
 
    <plugin name="InAppBrowser" value="CDVInAppBrowser" />
 
-   <gap:plugin name="org.apache.cordova.inappbrowser" />
+   <!--<gap:plugin name="org.apache.cordova.inappbrowser" />-->
 
     <content src="index.html" />
     <!--<access origin="*" /> -->
