@@ -83,40 +83,40 @@
                 <!-- COEX -->
                 <div id="coex" class="container-fluid">
                     <div class="row">
-                        <div class="col-md-3 col-lg-3 col-xl-2 px-lg-5">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1450</h1>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-2">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1620</h1>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-2">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1630</h1>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-2">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1640</h1>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-2">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1650</h1>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-2">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1660</h1>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-2">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1670</h1>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-2">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1680</h1>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-2">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1690</h1>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-2">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1700</h1>
                         </div>
-                        <div class="col-md-3 col-lg-3 col-xl-2">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <h1>Maquina 1710</h1>
                         </div>
-                        <div class="dd-none col-md-3 col-lg-3 col-xl-2">
+                        <div class="dd-none col-12 col-sm-6 col-md-3 col-lg-3 col-xl-2">
                             <!--<h1>Maquina 12</h1> -->
 
                             <div class="sitem m1620">
@@ -405,16 +405,18 @@
             })
 
             function columnas() {
-
-                if ((screen.width < 480)) {
-                    //do something
-                    //alert('1');
-                    $('.col-md-3').removeClass('col-6');
-                } else {
-                    //do something else
-                    //alert('2');
-                    $('.col-md-3').addClass('col-6');
-                }
+                /*
+                                if ((screen.width < 600)) {
+                                    //do something
+                                    //alert('1');
+                                    $('.col-md-3').removeClass('col-6');
+                                } else {
+                                    //do something else
+                                    //alert('2');
+                                    $('.col-md-3').addClass('col-6');
+                                }
+                */
+                //alert("h: " + screen.height + "w: " + screen.width)
             };
 
             columnas();
