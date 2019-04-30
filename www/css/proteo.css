@@ -1,324 +1,188 @@
-        body {
-        background: #ddd;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-    
-    html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-    
-    .container-fluid .row .col-md-3 {
-        border: solid 1px white;
-        padding: 10px;
-        margin-bottom: 30px;
-        background-color: darkgray;
-    }
-    
-    #objeto {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    
-    #objeto_reducido {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    
-    .item {
-        background-color: coral;
-        height: 200px;
-        width: 20%;
-        border: solid 1px grey;
-        margin-top: 1px;
-        margin-bottom: 1px;
-        margin-left: 2px;
-        margin-right: 2px;
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: 18%;
-        max-width: 18%;
-        text-align: left;
-        padding-left: 2px;
-        padding-right: 2px;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-    
-    .itemRed {
-        background-color: coral;
-        /*height: 200px;*/
-        /*width: 20%;*/
-        border: solid 1px grey;
-        margin-top: 1px;
-        margin-bottom: 1px;
-        /*margin-left: 2px;*/
-        /*margin-right: 2px;*/
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: 15%;
-        max-width: 15%;
-        text-align: left;
-        padding-left: 1px;
-        padding-right: 1px;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-    
-    .cab_maq {
-        border: solid 1px white;
-        border-radius: 8px;
-        background: #73AD21;
-        padding: 0px;
-        color: white;
-        text-align: center;
-    }
-    
-    .produc,
-    .parada,
-    .prepar,
-    .incide,
-    .puesta {
-        background-color: yellow;
-    }
-    
-    .produc {
-        background-color: green;
-    }
-    
-    .parada {
-        background-color: grey;
-    }
-    
-    .prepar {
-        background-color: dodgerblue;
-    }
-    
-    .incide {
-        background-color: red;
-    }
-    
-    .puesta {
-        background-color: blue;
-    }
-    
-    @media screen and (max-width: 640px) {
-        .item {
-            background-color: pink;
-            height: 200px;
-            width: 45%;
-            border: solid 1px grey;
-            flex-basis: 45%;
-            max-width: 45%;
-        }
-        .itemRed {
-            background-color: darkgray;
-            font-size: 12px;
-            flex-basis: 12%;
-            max-width: 12%;
-        }
-        .nav.nav-pills {
-            margin-bottom: 2px !important;
-        }
-        a.nav-link {
-            padding-top: 2px;
-            padding-bottom: 2px;
-        }
-    }
-    
-    @media (max-width: 360px) {
-        .item {
-            background-color: pink;
-            height: 200px;
-            width: 90%;
-            border: solid 1px grey;
-            flex-basis: 90%;
-            max-width: 90%;
-        }
-        .itemRed {
-            background-color: pink;
-            /*height: 200px;*/
-            /*width: 90%;*/
-            border: solid 1px grey;
-            flex-basis: 25%;
-            max-width: 25%;
-        }
-        .nav.nav-pills {
-            margin-bottom: 4px !important;
-        }
-        a.nav-link {
-            padding-top: 4px;
-            padding-bottom: 4px;
-        }
-        .nav-item a.nav-link {
-            color: green;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
-        /*
-
-#main{
-    background:#fff;
-    margin: 0 auto;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    box-shadow:0 1px 2px hsla(0, 0%, 0%, 0.3);
-    margin-top:25px;
-    margin-bottom:50px;
-    min-width:768px;
-    padding-bottom: 20px;
-    padding-top: 10px;
-    display: inline-block;
-}
-
-.container{
-  width: 750px;
-  text-align: left;
-}
-
-@media (max-width: 800px) {
-  #main{
-    margin-top:0;
-    margin-bottom:0;
-    margin-left:0;
-    margin-right:0;
-    padding-left: 10px;
-    padding-right: 10px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
+body {
+    background: #ddd;
+    text-align: center;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    min-width:0px;
-  }
+}
 
-  .container{
+html {
+    margin: 0;
+    padding: 0;
     width: 100%;
-  }
-
-  .github-banner{
-    display: none;
-  }
 }
 
-#userInput{
-  height:35px;
+.container-fluid .row .col-md-3 {
+    border: solid 1px white;
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: darkgray;
 }
 
-#barcode{
-    vertical-align: middle;
+#objeto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-#title{
-    display:inline-block;
-    margin-left: auto;
-    margin-right: auto;
+#objeto_reducido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item {
+    background-color: darkgray;
+    height: 200px;
+    width: 20%;
+    border: solid 1px grey;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 2px;
+    margin-right: 2px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 18%;
+    max-width: 18%;
     text-align: left;
-    line-height: 90%;
+    padding-left: 2px;
+    padding-right: 2px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-#title a:link{
-    text-decoration: none;
-    color: #000;
+.itemRed {
+    background-color: darkgray;
+    /*height: 200px;*/
+    /*width: 20%;*/
+    border: solid 1px grey;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    /*margin-left: 2px;*/
+    /*margin-right: 2px;*/
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 15%;
+    max-width: 15%;
+    text-align: left;
+    padding-left: 1px;
+    padding-right: 1px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-#title a:visited {
-    text-decoration: none;
-    color: #000;
+.cab_maq {
+    border: solid 1px white;
+    border-radius: 8px;
+    background: #73AD21;
+    padding: 0px;
+    color: white;
+    text-align: center;
 }
 
-#title a:hover {
-    text-decoration: underline;
-    color: #000;
+.produc,
+.parada,
+.prepar,
+.incide,
+.puesta {
+    background-color: yellow;
 }
 
-#title a:active {
-    text-decoration: underline;
-    color: #000;
+.produc {
+    background-color: green;
 }
 
-#invalid{
-    display: none;
-    color:#DE0000;
-    margin-top:10px;
-    font-size:14pt;
-    vertical-align: middle;
+.parada {
+    background-color: grey;
 }
 
-#barcodeType{
-  height:35px;
+.prepar {
+    background-color: dodgerblue;
 }
 
-.barcode-container{
-  height:200px;
-  line-height: 200px;
-  text-align: center;
-  vertical-align: middle;
-  margin-left: 25px;
-  margin-right: 25px;
+.incide {
+    background-color: red;
 }
 
-.description-text{
-  height:42px;
+.puesta {
+    background-color: blue;
 }
 
-.description-text p{
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+#last_update {
+    font-size: 12px;
 }
 
-.value-text{
-  height:42px;
-  text-align: right;
+@media screen and (max-width: 640px) {
+    .item {
+        background-color: pink;
+        height: 200px;
+        width: 45%;
+        border: solid 1px grey;
+        flex-basis: 45%;
+        max-width: 45%;
+    }
+    .itemRed {
+        background-color: darkgray;
+        font-size: 12px;
+        flex-basis: 12%;
+        max-width: 12%;
+    }
+    .nav.nav-pills {
+        margin-bottom: 2px !important;
+    }
+    a.nav-link {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
 }
 
-.value-text p{
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+@media (max-width: 360px) {
+    .item {
+        background-color: pink;
+        height: 200px;
+        width: 90%;
+        border: solid 1px grey;
+        flex-basis: 90%;
+        max-width: 90%;
+    }
+    .itemRed {
+        background-color: pink;
+        /*height: 200px;*/
+        /*width: 90%;*/
+        border: solid 1px grey;
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+    .nav.nav-pills {
+        margin-bottom: 4px !important;
+    }
+    a.nav-link {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    .nav-item a.nav-link {
+        color: green;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    #last_update {
+        font-size: 10px;
+    }
 }
 
-.center-text{
-  text-align: center;
+
+/* Not required for template or sticky footer method. */
+
+main>.container {
+    padding: 5px;
 }
 
-.search-bar{
-  margin-bottom: 20px;
+.footer {
+    background-color: #545b62;
+    ;
 }
 
-.slider-container{
-  margin-top: 17px;
+.footer>.container {
+    padding-right: 5px;
+    padding-left: 5px;
 }
-
-.input-container{
-  margin-top: 5px;
-}
-
-.barcode-select{
-  border-color: #ccc;
-}
-
-*/
-        /* Custom page CSS
--------------------------------------------------- */
-        /* Not required for template or sticky footer method. */
-        main>.container {
-            padding: 5px;
-        }
-        .footer {
-            background-color: #545b62;
-            ;
-        }
-        .footer>.container {
-            padding-right: 5px;
-            padding-left: 5px;
-        }

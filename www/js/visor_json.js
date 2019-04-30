@@ -621,3 +621,139 @@
     //alert('chuta');
 
 }());
+
+function html_maquina(maquinas, maquina) {
+
+    let html = "";
+
+    //..............
+    let estado = maquinas[maquina].estado.trim()
+    let desc_inc = maquinas[maquina].desc_incidencia.trim()
+    let cod_of = maquinas[maquina].cod_of
+    let operacion = maquinas[maquina].operacion
+    let articulo = maquinas[maquina].articulo
+    desc_inc = desc_inc > "" ? desc_inc : estado;
+
+    if (operacion == undefined) {
+        operacion = '';
+    }
+
+    if (cod_of == undefined) {
+        cod_of = ''
+    } else {
+        cod_of = cod_of + '/' + operacion
+    }
+
+    if (articulo == undefined) {
+        articulo = ''
+    } else {
+        let n = articulo.indexOf(" ");
+        if (n > 0) {
+            articulo = articulo.substring(0, n) + '<br>' + articulo.substring(n + 1, articulo.length);
+        }
+    }
+
+    if (estado == undefined || estado == 'PARADA') {
+        maquinas[maquina].cod_molde = '';
+        maquinas[maquina].cantidad_planificada = '';
+        maquinas[maquina].cantidad_ok = '';
+        maquinas[maquina].golpes_hora = '';
+    }
+
+    html += `<div class="itemD m${maquina}" maquina="${maquina}">
+                <div class="item2 cab_maq ${maquinas[maquina].estado.substring(0, 6).toLowerCase()}" maquina="${maquina}"> 
+                    <strong class="item3" maquina="${maquina}">${maquina}</strong><br>${desc_inc}
+                </div>
+                <strong class="item3" maquina="${maquina}">${maquinas[maquina].descripcion}</strong>
+                <div>
+                    <strong>OF/OPE:</strong> ${cod_of}
+                </div>
+                <div>
+                    <strong>ART:</strong> ${articulo}
+                </div>
+                <div>
+                    <strong>MOLDE:</strong> ${maquinas[maquina].cod_molde}
+                </div>
+                <div>
+                    <strong>CAVS:</strong> cavs
+                </div>
+                <div>
+                    <strong>OPERARIO:</strong> ${maquinas[maquina].operario.reduce((ops,op) => {return ops + '<br>' + op},'')}
+                </div>
+                <div>
+                    <strong>C.PLAN:</strong> ${maquinas[maquina].cantidad_planificada}
+                </div>
+                <div>
+                    <strong>C.OK:</strong> ${maquinas[maquina].cantidad_ok}
+                </div>
+                <div>
+                    <strong>GOLPES/H:</strong> ${maquinas[maquina].golpes_hora}
+                </div>
+            </div>`;
+    //..............
+    return html;
+
+}
+
+$(document).ready(function() {
+
+    $('#m1450').html(html_maquina(maquinas, '1450'));
+    $('#m1620').html(html_maquina(maquinas, '1620'));
+    $('#m1630').html(html_maquina(maquinas, '1630'));
+    $('#m1640').html(html_maquina(maquinas, '1640'));
+    $('#m1650').html(html_maquina(maquinas, '1650'));
+    $('#m1660').html(html_maquina(maquinas, '1660'));
+    $('#m1670').html(html_maquina(maquinas, '1670'));
+    $('#m1680').html(html_maquina(maquinas, '1680'));
+    $('#m1690').html(html_maquina(maquinas, '1690'));
+    $('#m1700').html(html_maquina(maquinas, '1700'));
+    $('#m1710').html(html_maquina(maquinas, '1710'));
+
+    $('#m2420').html(html_maquina(maquinas, '2420'));
+    $('#m2430').html(html_maquina(maquinas, '2430'));
+    $('#m2460').html(html_maquina(maquinas, '2460'));
+    $('#m2470').html(html_maquina(maquinas, '2470'));
+    $('#m2480').html(html_maquina(maquinas, '2480'));
+    $('#m2490').html(html_maquina(maquinas, '2490'));
+    $('#m2500').html(html_maquina(maquinas, '2500'));
+    $('#m2510').html(html_maquina(maquinas, '2510'));
+    $('#m2520').html(html_maquina(maquinas, '2520'));
+    $('#m2530').html(html_maquina(maquinas, '2530'));
+
+    $('#m3230').html(html_maquina(maquinas, '3230'));
+    $('#m3240').html(html_maquina(maquinas, '3240'));
+    $('#m3250').html(html_maquina(maquinas, '3250'));
+    $('#m9750').html(html_maquina(maquinas, '9750'));
+    $('#m9760').html(html_maquina(maquinas, '9760'));
+
+    $('#m4070').html(html_maquina(maquinas, '4070'));
+    $('#m4080').html(html_maquina(maquinas, '4080'));
+    $('#m4090').html(html_maquina(maquinas, '4090'));
+    $('#m5').html(html_maquina(maquinas, '5'));
+    $('#mvarios').html(html_maquina(maquinas, 'VARIOS'));
+
+    /*
+    setTimeout(function() {
+        let maqmodal = $('#maquinaModal').attr("maquina");
+        //alert(maqmodal);
+        if (maqmodal > "") {
+            let cuerpo = html_maquina(maquinas, maqmodal);
+            $('.modal-body').html('Detalle de la máquina nuevo ' + maqmodal + cuerpo);
+        }
+    }, 2000);
+    */
+
+    var date = new Date;
+    //date.setTime(result_from_Date_getTime);
+
+    var seconds = date.getSeconds();
+    var minutes = date.getMinutes();
+    var hour = date.getHours();
+
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1; // beware: January = 0; February = 1, etc.
+    var day = date.getDate();
+
+    $('#last_update').html(`${day}/${month}/${year} ${hour}:${minutes}`);
+
+})
