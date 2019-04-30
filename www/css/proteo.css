@@ -1,114 +1,139 @@
-body{
-    background:#ddd;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    width:100%;
-}
-
-html{
-  margin: 0;
-  padding: 0;
-  width:100%;
-}
-
-.container-fluid .row .col-md-3 {
-	border: solid 1px white;
-	padding: 10px;
-	margin-bottom: 30px;
-        background-color: darkgray;
-}
-
-#objeto {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-
-.item {
-	background-color: coral;
-	height: 200px;
-	width: 20%;
-	border: solid 1px grey;
-	margin-top: 1px;
-	margin-bottom: 1px;
-	margin-left: 2px;
-	margin-right: 2px;
-	flex-grow: 1;
-	flex-shrink: 1;
-	flex-basis: 18%;
-	max-width: 18%;
-        text-align: left;
-        padding-left: 2px;
-        padding-right: 2px;
-        overflow: hidden;
-        white-space: nowrap;
-}
-
-.cab_maq {
-       border: solid 1px white;
-       border-radius: 8px;
-       background: #73AD21;
-       padding: 0px;
-       color: white;
-       text-align: center;
-}
-
-.produc, .parada, .prepar, .incide, .puesta {
-	background-color: yellow;
-}
-
-.produc {
-	background-color: green;
-}
-
-.parada {
-	background-color: grey;
-}
-
-.prepar {
-	background-color: dodgerblue;
-}
-
-.incide {
-	background-color: red;
-}
-
-.puesta {
-	background-color: blue;
-}
-
-@media screen and (max-width: 640px) {
-	.item {
-		background-color: pink;
-		height: 200px;
-		width: 45%;
-		border: solid 1px grey;
-		flex-basis: 45%;
-		max-width: 45%;
-	}
-  }
-
-  @media (max-width: 360px) {
-	.item {
-		background-color: pink;
-		height: 200px;
-		width: 90%;
-		border: solid 1px grey;
-		flex-basis: 90%;
-		max-width: 90%;
-	}
-
-
-        .nav-item a.nav-link {
-  		color: green;
+            body {
+            background: #ddd;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        
+        .container-fluid .row .col-md-3 {
+            border: solid 1px white;
+            padding: 10px;
+            margin-bottom: 30px;
+            background-color: darkgray;
+        }
+        
+        #objeto {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        #objeto_reducido {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .item {
+            background-color: coral;
+            height: 200px;
+            width: 20%;
+            border: solid 1px grey;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            margin-left: 2px;
+            margin-right: 2px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 18%;
+            max-width: 18%;
+            text-align: left;
+            padding-left: 2px;
+            padding-right: 2px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .itemRed {
+            background-color: coral;
+            /*height: 200px;*/
+            /*width: 20%;*/
+            border: solid 1px grey;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            margin-left: 2px;
+            margin-right: 2px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 10%;
+            max-width: 10%;
+            text-align: left;
+            padding-left: 2px;
+            padding-right: 2px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .cab_maq {
+            border: solid 1px white;
+            border-radius: 8px;
+            background: #73AD21;
+            padding: 0px;
+            color: white;
+            text-align: center;
+        }
+        
+        .produc,
+        .parada,
+        .prepar,
+        .incide,
+        .puesta {
+            background-color: yellow;
+        }
+        
+        .produc {
+            background-color: green;
+        }
+        
+        .parada {
+            background-color: grey;
+        }
+        
+        .prepar {
+            background-color: dodgerblue;
+        }
+        
+        .incide {
+            background-color: red;
+        }
+        
+        .puesta {
+            background-color: blue;
+        }
+        
+        @media screen and (max-width: 640px) {
+            .item {
+                background-color: pink;
+                height: 200px;
+                width: 45%;
+                border: solid 1px grey;
+                flex-basis: 45%;
+                max-width: 45%;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .item {
+                background-color: pink;
+                height: 200px;
+                width: 90%;
+                border: solid 1px grey;
+                flex-basis: 90%;
+                max-width: 90%;
+            }
+            .nav-item a.nav-link {
+                color: green;
                 padding-left: 0.5rem;
-		padding-right: 0.5rem;
-        }  
-
-
-
-/*
+                padding-right: 0.5rem;
+            }
+            /*
 
 #main{
     background:#fff;
@@ -255,21 +280,17 @@ html{
 }
 
 */
-
-/* Custom page CSS
+            /* Custom page CSS
 -------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-main > .container {
-  padding: 5px;
-}
-
-.footer {
-  background-color: #545b62;;
-}
-
-.footer > .container {
-  padding-right: 5px;
-  padding-left: 5px;
-}
-
+            /* Not required for template or sticky footer method. */
+            main>.container {
+                padding: 5px;
+            }
+            .footer {
+                background-color: #545b62;
+                ;
+            }
+            .footer>.container {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
