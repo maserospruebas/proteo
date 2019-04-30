@@ -23,7 +23,7 @@
         };
         firebase.initializeApp(config);
         var holaMundo = document.getElementById('holaMundo');
-        var dbRef = firebase.database().ref().child('planta');
+        var dbRef = firebase.database().ref().child('last_update');
         dbRef.on('value', snap => holaMundo.innerText = snap.val());
     </script>
 </body>
