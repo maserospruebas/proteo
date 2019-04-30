@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <!--<link rel="stylesheet" type="text/css" href="css/gestures.css">-->
     <link rel="stylesheet" type="text/css" href="css/proteo.css">
-    <title>Hello, world!</title>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -329,7 +328,7 @@
 
 
     <!--MODAL-->
-    <div id="maquinaModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div id="maquinaModal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-secondary text-white  p-2">
@@ -361,11 +360,10 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/visor_json.js"></script>
 
-    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <script type="text/javascript" src="cordova.js"></script>
     <!--<script type="text/javascript" src="js/gestures.js"></script>-->
     <!--<script type="text/javascript" src="js/hammer.min.js"></script>-->
     <!--<script type="text/javascript" src="js/fastclick.js"></script>-->
@@ -402,26 +400,8 @@
                 e.preventDefault()
                 $('#pills-tab li:nth-child(5) a').tab('show');
                 $('.navbar-collapse.collapse').removeClass('show');
+
             })
-
-            function columnas() {
-
-                if ((screen.width < 480)) {
-                    //do something
-                    //alert('1');
-                    $('.col-md-3').removeClass('col-6');
-                } else {
-                    //do something else
-                    //alert('2');
-                    $('.col-md-3').addClass('col-6');
-                }
-            };
-
-            columnas();
-
-            $(window).resize(function() {
-                columnas();
-            });
 
             var maq = document.querySelectorAll('.item');
 
