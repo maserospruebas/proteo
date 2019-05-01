@@ -353,6 +353,9 @@
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>-->
+    <script src="js/firebase.js"></script>
     <script src="js/visor_json.js"></script>
 
     <!--<script type="text/javascript" src="cordova.js"></script>-->
@@ -394,27 +397,7 @@
                 $('.navbar-collapse.collapse').removeClass('show');
             })
 
-            function columnas() {
-                /*
-                                if ((screen.width < 600)) {
-                                    //do something
-                                    //alert('1');
-                                    $('.col-md-3').removeClass('col-6');
-                                } else {
-                                    //do something else
-                                    //alert('2');
-                                    $('.col-md-3').addClass('col-6');
-                                }
-                */
-                //alert("h: " + screen.height + "w: " + screen.width)
-            };
-
-            columnas();
-
-            $(window).resize(function() {
-                columnas();
-            });
-
+            /*
             //Click objeto normal
             var maq = document.querySelectorAll('.item');
 
@@ -435,34 +418,12 @@
             for (var i = 0; i < maq.length; i++) {
                 maq[i].addEventListener('click', playController);
             }
+            */
 
         }); //al terminar de cargar
 
 
-        function playController(e) {
 
-            let clase = this.className;
-            clase = '.' + clase.replace(/ /g, ".");
-            let maquina = $(clase).attr("maquina");
-
-            let cuerpo = html_maquina(maquinas, maquina);
-
-            //let cuerpo = '<br><p>1 <br></p><p>2 <br></p><p>3 <br></p><p>4 <br></p><p>5 <br></p><p>6 <br></p><p>7 <br></p><p>8 <br></p><p>9 <br></p><p>10<br></p>'
-
-            //funciona
-            //$(clase).html("funciona maquina "+ maquina);
-
-            //alert(clase);
-            //alert('Máquina: ' + maquina);
-
-            $('#maquinaModal').modal('show')
-            $('.modal-body').html('Detalle de la máquina ' + maquina + cuerpo);
-            $('#exampleModalLongTitle').html('MÁQUINA ' + maquina);
-
-            //marco modal para poder actualizarlo    
-            $('#maquinaModal').attr("maquina", maquina);
-
-        }
 
         //$(document).on('click', '.item', (e) => playController($(e.target).attr("maquina")));
         //$(document).on('click', '.item2', (e) => playController($(e.target).attr("maquina")));
