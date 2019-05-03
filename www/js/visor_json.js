@@ -544,6 +544,8 @@ maquinas = {
     }
 }
 
+localStorage.maquinas = localStorage.maquinas || maquinas;
+
 function resumen_todos() {
     //pongo en web
     //Obtener elementos
@@ -560,6 +562,13 @@ function resumen_todos() {
     let ObjectRed = '';
 
     for (const maquina in maquinas) {
+
+        if (maquina == "last_update") {
+            console.log(`Excluir: ${maquina}`);
+            //tratar last_update y ponerlo en cabecera
+            continue;
+        }
+
         //console.log(`maquinas.${prop} = ${maquinas[prop]}`);
         console.log(`${maquina} => `, maquinas[maquina].descripcion);
         //preObject.innerHTML += '<p>' + `${maquina} => ${maquinas[maquina].descripcion}` + '</p>';
@@ -567,25 +576,25 @@ function resumen_todos() {
         //Bueno
         //preObject.innerHTML += `<div class="item m${maquina}">${maquina} => ${maquinas[maquina].descripcion}</div>`;
 
-        let estado = maquinas[maquina].estado.trim()
-        let desc_inc = maquinas[maquina].desc_incidencia.trim()
-        let cod_of = maquinas[maquina].cod_of
-        let operacion = maquinas[maquina].operacion
-        let articulo = maquinas[maquina].articulo
+        let estado = maquinas[maquina].estado.trim();
+        let desc_inc = maquinas[maquina].desc_incidencia.trim();
+        let cod_of = maquinas[maquina].cod_of;
+        let operacion = maquinas[maquina].operacion;
+        let articulo = maquinas[maquina].articulo;
         desc_inc = desc_inc > "" ? desc_inc : estado;
 
         if (operacion == undefined) {
-            operacion = ''
+            operacion = '';
         }
 
         if (cod_of == undefined) {
-            cod_of = ''
+            cod_of = '';
         } else {
-            cod_of = cod_of + '/' + operacion
+            cod_of = cod_of + '/' + operacion;
         }
 
         if (articulo == undefined) {
-            articulo = ''
+            articulo = '';
         } else {
             let n = articulo.indexOf(" ");
             if (n > 0) {
@@ -638,11 +647,11 @@ function html_maquina(maquinas, maquina) {
     let html = "";
 
     //..............
-    let estado = maquinas[maquina].estado.trim()
-    let desc_inc = maquinas[maquina].desc_incidencia.trim()
-    let cod_of = maquinas[maquina].cod_of
-    let operacion = maquinas[maquina].operacion
-    let articulo = maquinas[maquina].articulo
+    let estado = maquinas[maquina].estado.trim();
+    let desc_inc = maquinas[maquina].desc_incidencia.trim();
+    let cod_of = maquinas[maquina].cod_of;
+    let operacion = maquinas[maquina].operacion;
+    let articulo = maquinas[maquina].articulo;
     desc_inc = desc_inc > "" ? desc_inc : estado;
 
     if (operacion == undefined) {
@@ -656,7 +665,7 @@ function html_maquina(maquinas, maquina) {
     }
 
     if (articulo == undefined) {
-        articulo = ''
+        articulo = '';
     } else {
         let n = articulo.indexOf(" ");
         if (n > 0) {
@@ -669,6 +678,7 @@ function html_maquina(maquinas, maquina) {
         maquinas[maquina].cantidad_planificada = '';
         maquinas[maquina].cantidad_ok = '';
         maquinas[maquina].golpes_hora = '';
+        maquinas[maquina].cavs = '';
     }
 
     html += `<div class="itemD m${maquina}" maquina="${maquina}">
@@ -686,7 +696,7 @@ function html_maquina(maquinas, maquina) {
                     <strong>MOLDE:</strong> ${maquinas[maquina].cod_molde}
                 </div>
                 <div>
-                    <strong>CAVS:</strong> cavs
+                    <strong>CAVS:</strong> ${maquinas[maquina].cavs}
                 </div>
                 <div>
                     <strong>OPERARIO:</strong> ${maquinas[maquina].operario.reduce((ops,op) => {return ops + '<br>' + op},'')}
@@ -849,6 +859,8 @@ function playController(e) {
 $(document).ready(function() {
 
     maquinas = {};
+
+    maquinas = JSON.parse(localStorage.maquinas);
 
     //last_update();
     last_update_visor();

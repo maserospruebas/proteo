@@ -43,6 +43,10 @@ function leer_datos_maquinas() {
             console.log(doc.data());
             maquinas = doc.data();
 
+            //maquinas = JSON.parse(localStorage.maquinas);
+            localStorage.maquinas = JSON.stringify(maquinas);
+            //localStorage.maquinas = localStorage.maquinas || maquinas;
+
             quitar_eventos();
             datos_maquinas();
             maquina_modal();
