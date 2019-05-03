@@ -544,7 +544,6 @@ maquinas = {
     }
 }
 
-localStorage.maquinas = localStorage.maquinas || maquinas;
 
 function resumen_todos() {
     //pongo en web
@@ -860,7 +859,8 @@ $(document).ready(function() {
 
     maquinas = {};
 
-    maquinas = JSON.parse(localStorage.maquinas);
+    //localStorage.maquinas = localStorage.maquinas || maquinas;
+    //maquinas = JSON.parse(localStorage.maquinas);
 
     //last_update();
     last_update_visor();
