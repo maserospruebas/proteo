@@ -862,8 +862,8 @@ $(document).ready(function() {
     maquinas = {};
 
     if (typeof(Storage) !== "undefined") {
-        localStorage.maquinas = localStorage.maquinas || maquinas;
-        maquinas = JSON.parse(localStorage.maquinas);
+        //localStorage.maquinas = localStorage.maquinas || maquinas;
+        //maquinas = JSON.parse(localStorage.maquinas);
     } else {
         // Sorry! No Web Storage support..
     }
@@ -871,7 +871,7 @@ $(document).ready(function() {
     //maquinas = JSON.parse(localStorage.maquinas);
 
     //last_update();
-    last_update_visor();
+    //last_update_visor();
     datos_maquinas();
 
     leer_datos_maquinas();
