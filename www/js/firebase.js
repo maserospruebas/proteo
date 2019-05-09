@@ -43,6 +43,11 @@ function leer_datos_maquinas() {
             console.log(doc.data());
             maquinas = doc.data();
 
+            if (typeof(Storage) !== "undefined") {
+                localStorage.maquinas = JSON.stringify(maquinas);
+            } else {
+                // Sorry! No Web Storage support..
+            }
             //maquinas = JSON.parse(localStorage.maquinas);
             //localStorage.maquinas = JSON.stringify(maquinas);
             //localStorage.maquinas = localStorage.maquinas || maquinas;

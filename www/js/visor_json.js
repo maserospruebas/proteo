@@ -565,6 +565,8 @@ function resumen_todos() {
         if (maquina == "last_update") {
             console.log(`Excluir: ${maquina}`);
             //tratar last_update y ponerlo en cabecera
+            console.log(`Last Update: ${maquinas[maquina]}`);
+            $('#last_update').html(maquinas[maquina]);
             continue;
         }
 
@@ -859,6 +861,12 @@ $(document).ready(function() {
 
     maquinas = {};
 
+    if (typeof(Storage) !== "undefined") {
+        localStorage.maquinas = localStorage.maquinas || maquinas;
+        maquinas = JSON.parse(localStorage.maquinas);
+    } else {
+        // Sorry! No Web Storage support..
+    }
     //localStorage.maquinas = localStorage.maquinas || maquinas;
     //maquinas = JSON.parse(localStorage.maquinas);
 
