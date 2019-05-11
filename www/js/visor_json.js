@@ -862,8 +862,18 @@ $(document).ready(function() {
     maquinas = {};
 
     if (typeof(Storage) !== "undefined") {
+        //Funciona en web
         //localStorage.maquinas = localStorage.maquinas || maquinas;
         //maquinas = JSON.parse(localStorage.maquinas);
+        //FIN Funciona en web
+
+        //localStorage.setItem("maquinas", "Smith");
+        maquinas = JSON.parse(localStorage.getItem("maquinas"));
+        console.log('LocalStorage', maquinas);
+        if (maquinas == null) {
+            maquinas = {};
+        }
+
     } else {
         // Sorry! No Web Storage support..
     }

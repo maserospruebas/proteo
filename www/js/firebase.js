@@ -45,6 +45,7 @@ function leer_datos_maquinas() {
 
             if (typeof(Storage) !== "undefined") {
                 //localStorage.maquinas = JSON.stringify(maquinas);
+                localStorage.setItem("maquinas", JSON.stringify(maquinas));
             } else {
                 // Sorry! No Web Storage support..
             }
