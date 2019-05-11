@@ -108,6 +108,16 @@ html {
     background-color: blue;
 }
 
+.lista {
+    background-color: orange;
+    color: black;
+}
+
+.incide.preventivo {
+    background-color: #FFCA28;
+    color: black;
+}
+
 #last_update {
     font-size: 12px;
 }

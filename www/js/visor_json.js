@@ -584,6 +584,8 @@ function resumen_todos() {
         let articulo = maquinas[maquina].articulo;
         desc_inc = desc_inc > "" ? desc_inc : estado;
 
+        let estado2 = desc_inc == "PREVENTIVO GENERAL" ? "preventivo" : "";
+
         if (operacion == undefined) {
             operacion = '';
         }
@@ -605,7 +607,7 @@ function resumen_todos() {
 
         ///*
         preObject.innerHTML += `<div class="item m${maquina}" maquina="${maquina}">
-                               <div class="item2 cab_maq ${maquinas[maquina].estado.substring(0, 6).toLowerCase()}" maquina="${maquina}"> 
+                               <div class="item2 cab_maq ${maquinas[maquina].estado.substring(0, 6).toLowerCase()} ${estado2}" maquina="${maquina}"> 
                                   <strong class="item3" maquina="${maquina}">${maquina}</strong><br>${desc_inc}
                                </div>
                                <strong class="item3" maquina="${maquina}">${maquinas[maquina].descripcion}</strong>
@@ -618,7 +620,7 @@ function resumen_todos() {
                             </div>`;
 
         ObjectRed += `<div class="itemRed m${maquina}" maquina="${maquina}">
-                    <div class="item2 cab_maq ${maquinas[maquina].estado.substring(0, 6).toLowerCase()}" maquina="${maquina}"> 
+                    <div class="item2 cab_maq ${maquinas[maquina].estado.substring(0, 6).toLowerCase()} ${estado2}" maquina="${maquina}"> 
                       <strong class="item3" maquina="${maquina}">${maquina}</strong><br>${desc_inc}
                     </div>
                     <strong class="item3" maquina="${maquina}">${maquinas[maquina].descripcion}</strong>
@@ -655,6 +657,8 @@ function html_maquina(maquinas, maquina) {
     let articulo = maquinas[maquina].articulo;
     desc_inc = desc_inc > "" ? desc_inc : estado;
 
+    let estado2 = desc_inc == "PREVENTIVO GENERAL" ? "preventivo" : "";
+
     if (operacion == undefined) {
         operacion = '';
     }
@@ -683,7 +687,7 @@ function html_maquina(maquinas, maquina) {
     }
 
     html += `<div class="itemD m${maquina}" maquina="${maquina}">
-                <div class="item2 cab_maq ${maquinas[maquina].estado.substring(0, 6).toLowerCase()}" maquina="${maquina}"> 
+                <div class="item2 cab_maq ${maquinas[maquina].estado.substring(0, 6).toLowerCase()} ${estado2}" maquina="${maquina}"> 
                     <strong class="item3" maquina="${maquina}">${maquina}</strong><br>${desc_inc}
                 </div>
                 <strong class="item3" maquina="${maquina}">${maquinas[maquina].descripcion}</strong>
@@ -860,6 +864,7 @@ function playController(e) {
 $(document).ready(function() {
 
     maquinas = {};
+    let poner_eventos_ini = false;
 
     if (typeof(Storage) !== "undefined") {
         //Funciona en web
@@ -869,9 +874,11 @@ $(document).ready(function() {
 
         //localStorage.setItem("maquinas", "Smith");
         maquinas = JSON.parse(localStorage.getItem("maquinas"));
-        console.log('LocalStorage', maquinas);
+        //console.log('LocalStorage', maquinas);
         if (maquinas == null) {
             maquinas = {};
+        } else {
+            poner_eventos_ini = true;
         }
 
     } else {
@@ -883,6 +890,9 @@ $(document).ready(function() {
     //last_update();
     //last_update_visor();
     datos_maquinas();
+
+    //Los eventos se ponen al leer maquinas de firestore, si las leemos en local hay que ponerlo 
+    if (poner_eventos_ini) poner_eventos();
 
     leer_datos_maquinas();
     //datos_maquinas();
