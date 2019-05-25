@@ -623,7 +623,7 @@ function resumen_todos() {
 
         ObjectRed += `<div class="itemRed m${maquina}" maquina="${maquina}">
                     <div class="item2 cab_maq ${maquinas[maquina].estado.substring(0, 6).toLowerCase()} ${estado2}" maquina="${maquina}"> 
-                      <strong class="item3" maquina="${maquina}">${maquina}</strong><span class="badge badge-pill" style="position:absolute;right:0.1rem;top:0.25rem;">${tiempo}</span><br>${desc_inc}
+                      <strong class="item3" maquina="${maquina}">${maquina}</strong><span class="badge badge-pill" style="position:absolute;right:0.1rem;top:0.25rem;"> ${tiempo}</span><br>${desc_inc}
                     </div>
                     <strong class="item3" maquina="${maquina}">${maquinas[maquina].descripcion}</strong>
                 </div>`;
@@ -692,7 +692,7 @@ function html_maquina(maquinas, maquina) {
 
     html += `<div class="itemD m${maquina}" maquina="${maquina}">
                 <div class="item2 cab_maq ${maquinas[maquina].estado.substring(0, 6).toLowerCase()} ${estado2}" maquina="${maquina}"> 
-                    <strong class="item3" maquina="${maquina}">${maquina}</strong><span class="badge badge-pill" style="position:absolute;right:1rem;top:0.8rem;">${tiempo}</span><br>${desc_inc}
+                    <strong class="item3" maquina="${maquina}">${maquina}</strong><span class="badge badge-pill" style="position:absolute;right:1rem;">${tiempo}</span><br>${desc_inc}
                 </div>
                 <strong class="item3" maquina="${maquina}">${maquinas[maquina].descripcion}</strong>
                 <div>

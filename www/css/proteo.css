@@ -72,6 +72,18 @@ html {
     white-space: nowrap;
 }
 
+.item3 {
+   /*padding-right: 5px;*/
+}
+
+.modal-body.itemD {
+   position:relative;
+}
+
+.modal-body.itemD badge {
+   top: 0;
+}
+
 .cab_maq {
     border: solid 1px white;
     border-radius: 8px;
