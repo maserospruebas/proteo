@@ -623,7 +623,7 @@ function resumen_todos() {
 
         ObjectRed += `<div class="itemRed m${maquina}" maquina="${maquina}">
                     <div class="item2 cab_maq ${maquinas[maquina].estado.substring(0, 6).toLowerCase()} ${estado2}" maquina="${maquina}"> 
-                      <strong class="item3" maquina="${maquina}">${maquina}</strong><span class="badge badge-pill" style="position:absolute;right:0.1rem;top:0.25rem;"> ${tiempo}</span><br>${desc_inc}
+                      <strong class="item3" maquina="${maquina}">${maquina}&nbsp&nbsp</strong><span class="badge badge-pill" style="position:absolute;right:0.1rem;top:0.25rem;"> ${tiempo}</span><br>${desc_inc}
                     </div>
                     <strong class="item3" maquina="${maquina}">${maquinas[maquina].descripcion}</strong>
                 </div>`;
@@ -863,6 +863,7 @@ function playController(e) {
     //marco modal para poder actualizarlo    
     $('#maquinaModal').attr("maquina", maquina);
 
+    $('#ver_historico').html('<a class="btn btn-primary" href="grafica.html?maquina=' + maquina + '" target="_blank" rel="noopener" role="button">Historico</a>');
 }
 
 $(document).ready(function() {

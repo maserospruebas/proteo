@@ -62,3 +62,46 @@ function leer_datos_maquinas() {
         console.log('lecturas fin');
     });
 }
+
+function leer_datos_maquina_historico(maquina) {
+
+    //lecturas continuas
+    db = firebase.firestore();
+
+    var docRef = db.collection('planta_historico').doc(maquina);
+
+    var observer = docRef.get().then(doc => {
+
+        if (doc.exists) {
+
+            //console.log('lecturas historico ini');
+            //console.log(doc.data());
+            maquinas_hist = doc.data();
+            grafica(maquinas_hist);
+
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No existe el documento!");
+            error_grafica();
+        }
+
+        console.log('lecturas historico fin');
+
+    }).catch(function(error) {
+        console.log("Error Obteniendo el documento:", error);
+        error_grafica();
+    });
+}
+
+/*
+ocRef.get().then(function(doc) {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch(function(error) {
+    console.log("Error getting document:", error);
+});
+*/

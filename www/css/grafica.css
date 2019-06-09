@@ -1,0 +1,393 @@
+body {
+    background: #ddd;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+/*
+.container-fluid .row .col-md-3 {
+    border: solid 1px white;
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: darkgray;
+}
+*/
+
+#objeto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#objeto_reducido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item {
+    background-color: darkgray;
+    height: 200px;
+    width: 20%;
+    border: solid 1px grey;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 2px;
+    margin-right: 2px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 18%;
+    max-width: 18%;
+    text-align: left;
+    padding-left: 2px;
+    padding-right: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.itemRed {
+    position: relative;
+    background-color: darkgray;
+    /*height: 200px;*/
+    /*width: 20%;*/
+    border: solid 1px grey;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    /*margin-left: 2px;*/
+    /*margin-right: 2px;*/
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 10%;
+    max-width: 10%;
+    text-align: left;
+    padding-left: 1px;
+    padding-right: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.item3 {
+    /*padding-right: 5px;*/
+}
+
+.modal-body.itemD {
+    position: relative;
+}
+
+.modal-body.itemD badge {
+    top: 0;
+}
+
+.cab_maq {
+    border: solid 1px white;
+    border-radius: 8px;
+    background: #73AD21;
+    padding: 0px;
+    color: white;
+    text-align: center;
+}
+
+.produc,
+.parada,
+.prepar,
+.incide,
+.puesta {
+    background-color: yellow;
+}
+
+.produc {
+    background-color: green;
+}
+
+.parada {
+    background-color: grey;
+}
+
+.prepar {
+    background-color: dodgerblue;
+}
+
+.incide {
+    background-color: red;
+}
+
+.puesta {
+    background-color: blue;
+}
+
+.lista {
+    background-color: orange;
+    color: black;
+}
+
+.trabaj {
+    background-color: #4080FF;
+}
+
+.incide.preventivo {
+    background-color: #FFCA28;
+    color: black;
+}
+
+.noactividad {
+    background-color: rgba(190, 190, 190, 1);
+}
+
+.futuro {
+    background-color: rgba(160, 160, 160, 1);
+    border-left: 2px solid yellow;
+}
+
+#last_update {
+    font-size: 12px;
+}
+
+.grafica {
+    height: 60px;
+    /*border: 1px solid rgba(0, 0, 0, 0.2);*/
+    flex-grow: 1;
+}
+
+.graficacontainer .grafica:nth-child(even) {
+    /*background-color: green;*/
+}
+
+.graficacontainer .grafica:nth-child(odd) {
+    /*background-color: blue;*/
+}
+
+hr {
+    position: absolute;
+    color: #FFCA28;
+}
+
+#graficas {
+    position: relative;
+}
+
+.barra {
+    position: relative;
+}
+
+.guia {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.guia div {
+    flex-grow: 1;
+    width: 1px;
+    height: 60px;
+    border: 1px solid gray;
+    pointer-events: none;
+}
+
+.tincidencia {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+    background-color: rgba(160, 160, 160, 1);
+}
+
+.noclick,
+.guia {
+    pointer-events: none;
+}
+
+.nguia {
+    height: 25px;
+}
+
+.nguia .num {
+    width: 1px;
+    flex-grow: 1;
+}
+
+.num {
+    position: relative;
+}
+
+.num p {
+    position: absolute;
+    width: 20px;
+    left: calc(100% - 10px);
+    font-size: 0.7rem;
+    top: 8px;
+}
+
+.num p.num0 {
+    position: absolute;
+    width: 20px;
+    right: calc(100% - 10px);
+    left: auto;
+}
+
+.inci {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    text-align: left;
+}
+
+@media screen and (max-width: 667px) {
+    .grafica {
+        height: 40px;
+    }
+    .guia div {
+        height: 40px;
+    }
+    .tincidencia {
+        height: 40px;
+    }
+    .inci {
+        font-size: 0.6rem;
+        line-height: 1.1;
+    }
+    .nguia {
+        font-size: 0.5rem;
+    }
+    div.nguia .texinc {
+        padding-bottom: 5px;
+        position: relative;
+        top: 10px;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .itemRed {
+        background-color: darkgray;
+        font-size: 12px;
+        flex-basis: 16%;
+        max-width: 16.5%;
+    }
+}
+
+
+/*@media screen and (max-width: 640px) {*/
+
+@media screen and (max-width: 667px) {
+    .item {
+        background-color: darkgray;
+        height: 200px;
+        width: 45%;
+        border: solid 1px grey;
+        flex-basis: 45%;
+        max-width: 45%;
+    }
+    .itemRed {
+        background-color: darkgray;
+        font-size: 12px;
+        flex-basis: 12%;
+        max-width: 13%;
+    }
+    .nav.nav-pills {
+        margin-bottom: 2px !important;
+    }
+    a.nav-link {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+}
+
+@media (max-width: 375px) {
+    .item {
+        background-color: darkgray;
+        /*pink;*/
+        height: 200px;
+        width: 90%;
+        border: solid 1px grey;
+        flex-basis: 90%;
+        max-width: 90%;
+    }
+    .itemRed {
+        background-color: darkgray;
+        /*pink;*/
+        /*height: 200px;*/
+        /*width: 90%;*/
+        border: solid 1px grey;
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+    .nav.nav-pills {
+        margin-bottom: 4px !important;
+    }
+    a.nav-link {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    .nav-item a.nav-link {
+        color: green;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    #last_update {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .item {
+        background-color: darkgray;
+        /*pink;*/
+        height: 200px;
+        width: 90%;
+        border: solid 1px grey;
+        flex-basis: 90%;
+        max-width: 90%;
+    }
+    .itemRed {
+        background-color: darkgray;
+        /*pink;*/
+        /*height: 200px;*/
+        /*width: 90%;*/
+        border: solid 1px grey;
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+    .nav.nav-pills {
+        margin-bottom: 4px !important;
+    }
+    a.nav-link {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    .nav-item a.nav-link {
+        color: green;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    #last_update {
+        font-size: 10px;
+    }
+}
+
+
+/* Not required for template or sticky footer method. */
+
+main>.container {
+    padding: 5px;
+}
+
+.footer {
+    background-color: #545b62;
+    ;
+}
+
+.footer>.container {
+    padding-right: 5px;
+    padding-left: 5px;
+}

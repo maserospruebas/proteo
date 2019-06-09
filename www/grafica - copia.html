@@ -1,0 +1,977 @@
+﻿<!doctype html>
+<html lang="es" class="h-100">
+
+<head>
+    <!-- Required meta tags -->
+    <title>Proteo - Alcion Plasticos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/proteo.css">
+    <title>Historico Máquinas</title>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+    <header class="container mb-1">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Alcion Plásticos&nbsp;<span id="last_update" class="badge badge-pill badge-secondary">01/01/2000 0:00</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_coex" class="nav-link" href="#">Coex</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_soplado" class="nav-link" href="#">Soplado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_inyeccion" class="nav-link" href="#">Inyección</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_serigrafia" class="nav-link" href="#">Serigrafía</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="btn_todo" class="nav-link" href="#">Todo</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <main class="mt-5">
+
+        <ul class="nav nav-pills  mt-2 mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-coex-tab" data-toggle="pill" href="#pills-coex" role="tab" aria-controls="pills-coex" aria-selected="true">Coex</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-soplado-tab" data-toggle="pill" href="#pills-soplado" role="tab" aria-controls="pills-soplado" aria-selected="false">Soplado</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-inyeccion-tab" data-toggle="pill" href="#pills-inyeccion" role="tab" aria-controls="pills-inyeccion" aria-selected="false">Inyección</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-serigrafia-tab" data-toggle="pill" href="#pills-serigrafia" role="tab" aria-controls="pills-serigrafia" aria-selected="false">Serigrafía</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-todo-tab" data-toggle="pill" href="#pills-todo" role="tab" aria-controls="pills-todo" aria-selected="false">Todo</a>
+            </li>
+        </ul>
+
+        <div class="container">
+            <div class="grafico">
+
+                <div class="row ejesj m-1">
+                    <div class="col-2  p-0 m-0 bg-dark">
+                        <div class="itemb">1</div>
+                        <div class="itemb">2</div>
+                        <div class="itemb">3</div>
+                        <div class="itemb">4</div>
+                    </div>
+                    <div class="col-10 d-flex p-0 m-0 bg-ejes">
+                        <div class="itema">
+                            <br><br><br><br><br><br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ejesj m-1">
+                    <div class="col-2  p-0 m-0 bg-dark">
+                        <div class="itemb">1</div>
+                        <div class="itemb">2</div>
+                        <div class="itemb">3</div>
+                        <div class="itemb">4</div>
+                    </div>
+                    <div class="col-10 d-flex p-0 m-0 bg-secondary">
+                        <div class="itema">6</div>
+                        <div class="itema">7</div>
+                        <div class="itema">8</div>
+                        <div class="itema">9</div>
+                        <div class="itema">10</div>
+                        <div class="itema">11</div>
+                        <div class="itema">12</div>
+                        <div class="itema">13</div>
+                    </div>
+                </div>
+                <div class="row m-1">
+                    <div class="col-2  p-0 m-0 bg-dark">
+                        <div class="itemb">PRODUCCIÓN</div>
+                    </div>
+                    <div class="col-10 d-flex p-0 m-0 bg-secondary">
+                        <div class="itema"></div>
+                        <div class="itema"></div>
+                        <div class="itema"></div>
+                        <div class="itema"></div>
+                        <div class="itema"></div>
+                        <div class="itema"></div>
+                        <div class="itema"></div>
+                        <div class="itema"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .altura {
+                height: 60px;
+            }
+            
+            .itemc {
+                height: 100%;
+                background-color: rgba(255, 255, 0, .002);
+                border: 1px solid black;
+                flex-grow: 1;
+            }
+            
+            .datos {
+                height: 100%;
+                background-color: rgba(0, 255, 0, .02);
+                /*border: 1px solid green;*/
+                flex-grow: 1;
+            }
+            
+            .datos:nth-child(odd) {
+                background-color: blue;
+            }
+            
+            .datos:nth-child(even) {
+                background-color: yellow;
+            }
+            
+            .borde {
+                border: 1px solid black;
+            }
+            
+            .rojo {
+                background-color: rgba(255, 0, 0, 0.8);
+            }
+            
+            .guideline {
+                top: -60px;
+            }
+            
+            .noclick {
+                pointer-events: none;
+            }
+        </style>
+
+        <div class="container">
+            <div class="row pa-0 ma-0">
+                <div class="col-2 rojo altura p-0 m-0">1</div>
+                <div class="col-10 rojoaa altura d-flex p-0 m-0">
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                </div>
+                <div class="col-2 borde altura guideline p-0 m-0 noclick"></div>
+                <div class="col-10 borde altura guideline d-flex p-0 m-0 noclick">
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                </div>
+            </div>
+
+            <div class="row pa-0 ma-0">
+                <div class="col-2 rojo altura p-0 m-0">1</div>
+                <div class="col-10 rojoaa altura d-flex p-0 m-0">
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                    <div class="datos"></div>
+                </div>
+                <div class="col-2 borde altura guideline p-0 m-0 noclick"></div>
+                <div class="col-10 borde altura guideline d-flex p-0 m-0 noclick">
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                    <div class="itemc"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="row borde m-1">
+                <div class="col-2 ">1</div>
+                <div class="col-10 ">2</div>
+            </div>
+        </div>
+
+        <div class="d-none container">
+            <div id="objeto">
+
+            </div>
+        </div>
+
+    </main>
+
+
+    <!--MODAL-->
+    <div id="maquinaModal" maquina="" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary text-white  p-2">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <p>Cuerpo del modal</p>
+                </div>
+                <div class="modal-footer p-2">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FIN MODAL-->
+
+    <!--
+    <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Popover">
+        Popover on top
+    </button>
+    <div type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Popover">
+        Popover on top
+    </div>
+
+    <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+
+    <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
+
+    <button>
+        hola
+    </button>
+    -->
+
+    <footer class="footer mt-auto py-0">
+        <div class="container">
+            <span class="text-muted">
+        <p class="m-0 p-1">&copy; Alcion Plásticos S.L. 2019</p>
+      </span>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <!--<script src="js/popper.min.js"></script>-->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>-->
+    <script src="js/firebase.js"></script>
+    <script src="js/grafica.js"></script>
+
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <!--<script type="text/javascript" src="js/gestures.js"></script>-->
+    <!--<script type="text/javascript" src="js/hammer.min.js"></script>-->
+    <!--<script type="text/javascript" src="js/fastclick.js"></script>-->
+
+    <script>
+        $(document).ready(function() {
+            console.log("ready!");
+
+            $('#btn_coex').on('click', function(e) {
+                e.preventDefault()
+                $('#pills-tab li:nth-child(1) a').tab('show');
+                $('.navbar-collapse.collapse').removeClass('show');
+            })
+
+            $('#btn_soplado').on('click', function(e) {
+                e.preventDefault()
+                $('#pills-tab li:nth-child(2) a').tab('show');
+                $('.navbar-collapse.collapse').removeClass('show');
+            })
+
+            $('#btn_inyeccion').on('click', function(e) {
+                e.preventDefault()
+                $('#pills-tab li:nth-child(3) a').tab('show');
+                $('.navbar-collapse.collapse').removeClass('show');
+            })
+
+            $('#btn_serigrafia').on('click', function(e) {
+                e.preventDefault()
+                $('#pills-tab li:nth-child(4) a').tab('show');
+                $('.navbar-collapse.collapse').removeClass('show');
+            })
+
+            $('#btn_todo').on('click', function(e) {
+                e.preventDefault()
+                $('#pills-tab li:nth-child(5) a').tab('show');
+                $('.navbar-collapse.collapse').removeClass('show');
+            })
+
+            //Los poopovers deben inicializarse
+            $('[data-toggle="popover"]').popover()
+
+            $('.popover-dismiss').popover({
+                    trigger: 'focus'
+                })
+                /*
+                //Click objeto normal
+                var maq = document.querySelectorAll('.item');
+
+                for (var i = 0; i < maq.length; i++) {
+                    maq[i].addEventListener('click', playController);
+                }
+
+                //Click objeto reducido
+                var maq = document.querySelectorAll('.itemRed');
+
+                for (var i = 0; i < maq.length; i++) {
+                    maq[i].addEventListener('click', playController);
+                }
+
+                //Click objeto reducido
+                var maq = document.querySelectorAll('.itemD');
+
+                for (var i = 0; i < maq.length; i++) {
+                    maq[i].addEventListener('click', playController);
+                }
+                */
+
+            //Click objeto reducido
+            var datos = document.querySelectorAll('.datos');
+
+            for (var i = 0; i < datos.length; i++) {
+                datos[i].addEventListener('click', playController1);
+            }
+
+        }); //al terminar de cargar
+
+
+        function playController1() {
+            alert(this.className1);
+        }
+
+
+        //$(document).on('click', '.item', (e) => playController($(e.target).attr("maquina")));
+        //$(document).on('click', '.item2', (e) => playController($(e.target).attr("maquina")));
+        //$(document).on('click', '.item3', (e) => playController($(e.target).attr("maquina")));
+
+        //$('.item').on('click', (e) => playController(e,$(e.target).attr("maquina")));
+        //$('.item2').on('click', (e) => playController(e,$(e.target).attr("maquina")));
+        //$('.item3').on('click', (e) => playController(e,$(e.target).attr("maquina")));
+
+        //$(document).on('click', '.maq', (e) => playController(e,$(e.target).attr("maquina")));
+        //$(document).on('click', '.maq', (e) => playController(e,$(e.target).attr("className")));
+
+        //$(document).on('click', '.maq', playController);
+    </script>
+
+</body>
+
+</html>
