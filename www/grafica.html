@@ -24,7 +24,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+            <!--
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
@@ -46,14 +46,14 @@
                         <a id="btn_todo" class="nav-link" href="#">Todo</a>
                     </li>
                 </ul>
-            </div>
+            </div>-->
         </nav>
 
     </header>
 
     <main class="mt-5">
 
-        <ul class="nav nav-pills  mt-2 mb-3" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills  mt-2 mb-3 d-none" id="pills-tab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="pills-coex-tab" data-toggle="pill" href="#pills-coex" role="tab" aria-controls="pills-coex" aria-selected="true">Coex</a>
             </li>
@@ -72,16 +72,15 @@
         </ul>
 
         <div class="container">
-            <h2 id="nmaquina" class="p-0">MÁQUINA</h2>
+            <h2 id="nmaquina" class="m-0 p-0">MÁQUINA</h2>
+            <h6 id="nturno" class="m-0 p-0">TURNO</h6>
         </div>
 
         <div class="acontainer dd-none" style="width:86%;margin:auto;">
             <div class="row">
                 <div id="incidencias" class="col-2 p-0 m-0">
-                    <div class="nguia"> INCIDENCIAS</div>
-                    <div class="tincidencia p-1">incidencia 1</div>
-                    <div class="tincidencia p-1">incidencia 2</div>
-                    <div class="tincidencia p-1">incidencia 3</div>
+                    <div class="nguia"> ESTADO</div>
+                    <div class="tincidencia p-1">inc 1</div>
                 </div>
                 <div class="col-10 p-0">
                     <div class="nguia d-flex">
@@ -118,7 +117,7 @@
         </div>
 
 
-        <div>
+        <div class="d-none">
             <p>fin</p>
         </div>
 

@@ -53,7 +53,7 @@
 
         <ul class="nav nav-pills  mt-2 mb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="pills-coex-tab" data-toggle="pill" href="#pills-coex" role="tab" aria-controls="pills-coex" aria-selected="true">Coex</a>
+                <a class="nav-link N-active" id="pills-coex-tab" data-toggle="pill" href="#pills-coex" role="tab" aria-controls="pills-coex" aria-selected="true">Coex</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="pills-soplado-tab" data-toggle="pill" href="#pills-soplado" role="tab" aria-controls="pills-soplado" aria-selected="false">Soplado</a>
@@ -65,12 +65,12 @@
                 <a class="nav-link" id="pills-serigrafia-tab" data-toggle="pill" href="#pills-serigrafia" role="tab" aria-controls="pills-serigrafia" aria-selected="false">Serigrafía</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-todo-tab" data-toggle="pill" href="#pills-todo" role="tab" aria-controls="pills-todo" aria-selected="false">Todo</a>
+                <a class="nav-link active" id="pills-todo-tab" data-toggle="pill" href="#pills-todo" role="tab" aria-controls="pills-todo" aria-selected="false">Todo</a>
             </li>
         </ul>
 
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane ffade show active" id="pills-coex" role="tabpanel" aria-labelledby="pills-coex-tab">
+            <div class="tab-pane ffade show N-active" id="pills-coex" role="tabpanel" aria-labelledby="pills-coex-tab">
                 <!-- COEX -->
                 <div id="coex" class="container-fluid">
                     <div class="row">
@@ -247,7 +247,7 @@
                 <!-- FIN SERIGRAFIA -->
             </div>
 
-            <div class="tab-pane ffade" id="pills-todo" role="tabpanel" aria-labelledby="pills-todo-tab">
+            <div class="tab-pane ffade show active" id="pills-todo" role="tabpanel" aria-labelledby="pills-todo-tab">
                 <!-- TODO -->
                 <div id="todo" class="container-fluid">
                     <div class="row">
@@ -345,8 +345,16 @@
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <!--<script src="js/popper.min.js"></script>-->
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>-->
     <!--<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-functions.js"></script>
+
     <script src="js/firebase.js"></script>
     <script src="js/visor_json.js"></script>
 

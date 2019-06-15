@@ -856,14 +856,16 @@ function playController(e) {
     //alert(clase);
     //alert('Máquina: ' + maquina);
 
-    $('#maquinaModal').modal('show')
+    $('#maquinaModal').modal('show');
     $('.modal-body').html('Detalle de la máquina ' + maquina + cuerpo);
     $('#exampleModalLongTitle').html('MÁQUINA ' + maquina);
 
     //marco modal para poder actualizarlo    
     $('#maquinaModal').attr("maquina", maquina);
 
-    $('#ver_historico').html('<a class="btn btn-primary" href="grafica.html?maquina=' + maquina + '" target="_blank" rel="noopener" role="button">Historico</a>');
+    $('#ver_historico').html('<a class="btn btn-primary" href="grafica.html?maquina=' + maquina + '" target="_blank" rel="noopener" role="button">Histórico</a>');
+    $('#ver_historico .btn').click(function() { $('#maquinaModal').modal('hide'); });
+
 }
 
 $(document).ready(function() {

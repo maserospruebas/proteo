@@ -1,4 +1,5 @@
 ﻿var maquinas, maquinas_hist;
+var timer;
 
 maquinas_hist = {};
 
@@ -497,18 +498,34 @@ $(document).ready(function() {
 
     leer_datos_maquina_historico(maq);
 
-    $('#nmaquina').html('MAQ. ' + maq.substring(1, 3));
+    if (maq == "5" || maq == "VARIOS" || maq == "4070" || maq == "4080" || maq == "4090") {
+        if (maq == "5") { maq = "DESTAJO"; }
+        if (maq == "4070") { maq = "MAQUINA OMSO-5 UVA (1 CAB)"; }
+        if (maq == "4080") { maq = "MAQUINA OMSO-4 UVA (3 CAB)"; }
+        if (maq == "4090") { maq = "MAQUINA OMSO-1 UVA (2 CAB)"; }
+
+    } else {
+        maq = 'MAQ. ' + maq.substring(1, 3);
+    }
+
+    $('#nmaquina').html(maq);
 
 });
 
 function grafica(historico) {
     console.log(historico);
     var tactual = historico.a; //En estado actual pon la fecha fin como last update
+    var turno_ini;
 
     if (tactual.length > 0) {
         tactual[0].fecha_fin = historico.last_update;
         $('#last_update').html(tactual[0].fecha_fin.substring(0, 16));
+        turno_ini = historico.cod_turno;
     }
+
+    if (turno_ini == "1") { $('#nturno').html('Turno: Mañana'); }
+    if (turno_ini == "2") { $('#nturno').html('Turno: Tarde'); }
+    if (turno_ini == "3") { $('#nturno').html('Turno: Noche'); }
 
     tactual = tactual.reverse();
     console.log(tactual);
@@ -519,8 +536,11 @@ function grafica(historico) {
     var segundos = 0;
     var inc1 = "";
     var clase = "";
+    var popover = "";
+    var tiempo = 0;
+    var stiempo = "";
 
-    var cabecera = "<div class='nguia'> INCIDENCIAS</div>"
+    var cabecera = "<div class='nguia'> ESTADO</div>"
     cabecera += "<div class='tincidencia p-1'>inc 1</div>"
     cabecera += "<div class='tincidencia p-1'>inc 2</div>"
     cabecera += "<div class='tincidencia p-1'>inc 3</div>"
@@ -549,13 +569,15 @@ function grafica(historico) {
 
     });
 
-    cabecera = "<div class='nguia'><p class='texinc'> INCIDENCIAS</p></div>";
+    cabecera = "<div class='nguia'><p class='texinc'> ESTADO</p></div>";
 
 
     for (var key in cab) {
         //cabecera += "<div class='inci tincidencia p-1'>" + cab[key] + "</div>";
         cabecera += "<div class='inci tincidencia p-1'>" + key + "</div>";
     }
+
+    cabecera = cabecera.replace(/INCIDENCIA<br>/g, "");
 
     console.log('cab----------------------', cab, '----------------------------');
     console.log(cabecera);
@@ -567,6 +589,21 @@ function grafica(historico) {
         estilo = estilo + ".g" + n + " {width: calc(100% * " + element.segundos + "/" + segturno + ")}"; // background-color: blue;} .g2 {width:calc(100% * 75/100); background-color: red;}";
         //grafica = grafica + "<div class='grafica g" + n + "'>t" + n + "</div>";
         //primera vez
+
+        //tiempo popover
+        stiempo = element.fecha_ini.trim().substring(10, 20) + ' - ' + element.fecha_fin.trim().substring(10, 20);
+
+        tiempo = element.segundos;
+
+        if (tiempo < 60) {
+            tiempo = ' ' + element.segundos + 's';
+        } else {
+            tiempo = Math.trunc(tiempo / 60);
+            tiempo = ' ' + tiempo + 'm';
+        }
+
+        stiempo = stiempo + tiempo;
+        //Fin tiempos popover
 
         //por cada tipo incidencia creo una barra
         for (var key in cab) {
@@ -585,7 +622,16 @@ function grafica(historico) {
                 clase = "noactividad";
             }
 
-            cab[key].grafica = cab[key].grafica + "<div class='grafica g" + n + ' ' + clase + "'></div>"; //Ajuste final, segundos hasta terminar el turno
+            //cab[key].grafica = cab[key].grafica + "<div class='grafica g" + n + ' ' + clase + "'></div>"; //Ajuste final, segundos hasta terminar el turno
+
+            if (clase == "noactividad") {
+                popover = '';
+            } else {
+                popover = ' data-toggle="popover" data-trigger="focus" data-placement="auto" title="Tiempo" data-content="' + stiempo + '"';
+            }
+
+            cab[key].grafica = cab[key].grafica + "<div class='grafica g" + n + ' ' + clase + "' " + popover + "></div>";
+
 
             if (n == tactual.length) {
 
@@ -633,9 +679,28 @@ function grafica(historico) {
     $("#graficas").html(grafica);
     $("#incidencias").html(cabecera);
 
+    /*
     for (var index = 0; index < 9; index++) {
         $("#n" + index).html(+'6' + index + ':00');
         $("#n" + index).html(+'6' + index);
+    }
+    */
+
+    var hora = 0;
+    //alert(turno_ini);
+    if (turno_ini == "1") { hora = 6; }
+    if (turno_ini == "2") { hora = 14; }
+    if (turno_ini == "3") { hora = 22; }
+
+    for (var index = 0; index < 9; index++) {
+        //$("#n" + index).html(+'6' + index + ':00');
+        //$("#n" + index).html(+'6' + index);
+
+        if (hora >= 24) { hora = 0; }
+
+        $("#n" + index).html(hora);
+        hora++;
+
     }
 
     var datos = document.querySelectorAll('.grafica');
@@ -644,8 +709,25 @@ function grafica(historico) {
         datos[i].addEventListener('click', playController2);
     }
 
+    //popover en escucha
+    $('[data-toggle="popover"]').popover()
+
+    $('.popover-dismiss').popover({
+        trigger: 'focus'
+    });
+
     function playController2() {
-        alert(this.className);
+        //alert(this.className);
+        var clase = this.className;
+        clase = "." + clase.trim().replace(/ /g, ".");
+        //alert(clase);
+        //Cierro los popover abiertos para que solo haya uno
+        $('[data-toggle="popover"]').popover('hide');
+        $(clase).popover('show');
+        //Como lo cierro a mano anulo el timer anterior si existe
+        clearTimeout(timer);
+        //Cierro los popover a los 4 segundos
+        timer = setTimeout(function() { $('[data-toggle="popover"]').popover('hide'); }, 4000);
     }
 }
 
