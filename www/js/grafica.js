@@ -499,10 +499,21 @@ $(document).ready(function() {
     leer_datos_maquina_historico(maq);
 
     if (maq == "5" || maq == "VARIOS" || maq == "4070" || maq == "4080" || maq == "4090") {
-        if (maq == "5") { maq = "DESTAJO"; }
-        if (maq == "4070") { maq = "MAQUINA OMSO-5 UVA (1 CAB)"; }
-        if (maq == "4080") { maq = "MAQUINA OMSO-4 UVA (3 CAB)"; }
-        if (maq == "4090") { maq = "MAQUINA OMSO-1 UVA (2 CAB)"; }
+        if (maq == "5") {
+            maq = "DESTAJO";
+        }
+        if (maq == "4070") {
+            maq = "MAQUINA OMSO-5 UVA (1 CAB)";
+            maq = "MAQ. 4070 (2 CAB)";
+        }
+        if (maq == "4080") {
+            maq = "MAQUINA OMSO-4 UVA (3 CAB)";
+            maq = "MAQ. 4080 (3 CAB)";
+        }
+        if (maq == "4090") {
+            maq = "MAQUINA OMSO-1 UVA (2 CAB)";
+            maq = "MAQ. 4090 (2 CAB)";
+        }
 
     } else {
         maq = 'MAQ. ' + maq.substring(1, 3);
@@ -523,9 +534,15 @@ function grafica(historico) {
         turno_ini = historico.cod_turno;
     }
 
-    if (turno_ini == "1") { $('#nturno').html('Turno: Mañana'); }
-    if (turno_ini == "2") { $('#nturno').html('Turno: Tarde'); }
-    if (turno_ini == "3") { $('#nturno').html('Turno: Noche'); }
+    if (turno_ini == "1") {
+        $('#nturno').html('Mañana');
+    }
+    if (turno_ini == "2") {
+        $('#nturno').html('Tarde');
+    }
+    if (turno_ini == "3") {
+        $('#nturno').html('Noche');
+    }
 
     tactual = tactual.reverse();
     console.log(tactual);
@@ -595,6 +612,7 @@ function grafica(historico) {
 
         tiempo = element.segundos;
 
+        /*
         if (tiempo < 60) {
             tiempo = ' ' + element.segundos + 's';
         } else {
@@ -603,6 +621,9 @@ function grafica(historico) {
         }
 
         stiempo = stiempo + tiempo;
+        */
+
+        stiempo += '  ' + segundosToHoras(element.segundos);
         //Fin tiempos popover
 
         //por cada tipo incidencia creo una barra
@@ -688,15 +709,23 @@ function grafica(historico) {
 
     var hora = 0;
     //alert(turno_ini);
-    if (turno_ini == "1") { hora = 6; }
-    if (turno_ini == "2") { hora = 14; }
-    if (turno_ini == "3") { hora = 22; }
+    if (turno_ini == "1") {
+        hora = 6;
+    }
+    if (turno_ini == "2") {
+        hora = 14;
+    }
+    if (turno_ini == "3") {
+        hora = 22;
+    }
 
     for (var index = 0; index < 9; index++) {
         //$("#n" + index).html(+'6' + index + ':00');
         //$("#n" + index).html(+'6' + index);
 
-        if (hora >= 24) { hora = 0; }
+        if (hora >= 24) {
+            hora = 0;
+        }
 
         $("#n" + index).html(hora);
         hora++;
@@ -727,7 +756,45 @@ function grafica(historico) {
         //Como lo cierro a mano anulo el timer anterior si existe
         clearTimeout(timer);
         //Cierro los popover a los 4 segundos
-        timer = setTimeout(function() { $('[data-toggle="popover"]').popover('hide'); }, 4000);
+        timer = setTimeout(function() {
+            $('[data-toggle="popover"]').popover('hide');
+            $(".progress-bar").removeClass("progress-bar progress-bar-striped progress-bar-animated");
+        }, 4000);
+
+        //quito animacion de fondo anterior
+        $(".progress-bar").removeClass("progress-bar progress-bar-striped progress-bar-animated");
+
+        //animo el fondo
+        if (!(clase.includes('noactividad') || clase.includes('futuro'))) {
+            $(clase).addClass("progress-bar progress-bar-striped progress-bar-animated");
+        }
+
+    }
+
+    function segundosToHoras(segundos) {
+
+        var tiempo, minutos, horas;
+
+        tiempo = segundos;
+
+        if (tiempo < 60) {
+            tiempo = tiempo + 's';
+        } else {
+
+            minutos = Math.trunc((tiempo / 60));
+
+            horas = Math.trunc((minutos / 60));
+            minutos = minutos - (horas * 60);
+
+            minutos = minutos < 0 ? 0 : minutos;
+
+            minutos = minutos < 10 ? '0' + minutos : '' + minutos;
+
+            tiempo = horas + ':' + minutos;
+        }
+
+
+        return tiempo;
     }
 }
 
