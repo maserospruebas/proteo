@@ -165,11 +165,6 @@ html {
     /*background-color: blue;*/
 }
 
-hr {
-    position: absolute;
-    color: #FFCA28;
-}
-
 #graficas {
     position: relative;
 }
@@ -264,6 +259,13 @@ hr {
     content: "Turno: ";
 }
 
+#nsalir {
+    font-size: 1.2rem;
+    position: absolute;
+    right: 0;
+    top: 1px;
+}
+
 @media screen and (max-width: 667px) {
     .grafica {
         height: 40px;
@@ -296,8 +298,17 @@ hr {
     #nturno:before {
         content: "T: ";
     }
+    #nsalir button {
+        top: 1px;
+        padding: .15rem .3rem;
+        font-size: .8rem;
+        line-height: 1.5;
+        border-radius: .2rem;
+    }
 }
 
+
+}
 @media screen and (max-width: 1366px) {
     .itemRed {
         background-color: darkgray;
@@ -307,9 +318,7 @@ hr {
     }
 }
 
-
 /*@media screen and (max-width: 640px) {*/
-
 @media screen and (max-width: 667px) {
     .item {
         background-color: darkgray;
@@ -319,21 +328,23 @@ hr {
         flex-basis: 45%;
         max-width: 45%;
     }
+    
     .itemRed {
         background-color: darkgray;
         font-size: 12px;
         flex-basis: 12%;
         max-width: 13%;
     }
+    
     .nav.nav-pills {
         margin-bottom: 2px !important;
     }
+    
     a.nav-link {
         padding-top: 2px;
         padding-bottom: 2px;
     }
 }
-
 @media (max-width: 375px) {
     .item {
         background-color: darkgray;
@@ -344,6 +355,7 @@ hr {
         flex-basis: 90%;
         max-width: 90%;
     }
+    
     .itemRed {
         background-color: darkgray;
         /*pink;*/
@@ -353,23 +365,26 @@ hr {
         flex-basis: 25%;
         max-width: 25%;
     }
+    
     .nav.nav-pills {
         margin-bottom: 4px !important;
     }
+    
     a.nav-link {
         padding-top: 4px;
         padding-bottom: 4px;
     }
+    
     .nav-item a.nav-link {
         color: green;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
+    
     #last_update {
         font-size: 10px;
     }
 }
-
 @media (max-width: 360px) {
     .item {
         background-color: darkgray;
@@ -380,6 +395,7 @@ hr {
         flex-basis: 90%;
         max-width: 90%;
     }
+    
     .itemRed {
         background-color: darkgray;
         /*pink;*/
@@ -389,35 +405,35 @@ hr {
         flex-basis: 25%;
         max-width: 25%;
     }
+    
     .nav.nav-pills {
         margin-bottom: 4px !important;
     }
+    
     a.nav-link {
         padding-top: 4px;
         padding-bottom: 4px;
     }
+    
     .nav-item a.nav-link {
         color: green;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
+    
     #last_update {
         font-size: 10px;
     }
 }
 
-
 /* Not required for template or sticky footer method. */
-
 main>.container {
     padding: 5px;
 }
-
 .footer {
     background-color: #545b62;
     ;
 }
-
 .footer>.container {
     padding-right: 5px;
     padding-left: 5px;

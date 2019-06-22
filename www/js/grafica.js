@@ -796,6 +796,11 @@ function grafica(historico) {
 
         return tiempo;
     }
+
+    //Quito mensaje "leyendo datos" y muestro grafica
+    $(".dd-none1").addClass('d-none');
+    $(".dd-none2").removeClass('d-none');
+
 }
 
 function clase_estado(estado, desc_inc) {
@@ -832,4 +837,25 @@ function getQueryVariable(variable) {
         }
     }
     return (false);
+}
+
+function cerrar_ventana() {
+    window.close();
+}
+
+function error_grafica(terror) {
+
+    if (terror == "Error") {
+        //alert("Error obteniendo datos, intentelo de nuevo => " + terror);
+        $(".dd-none1 h3").html("<div>Error obteniendo datos, intentelo de nuevo más tarde<br><span style='font-size:1rem'>Revise su conexión a internet</span></div><div class='p-2'><button type='button' class='btn btn-sm btn-primary' onclick='actualizar_ventana()'>Actualizar</button>");
+    } else {
+        //alert("La máquina no existe => " + terror);
+        $(".dd-none1 h3").html("No se dispone de datos para esta máquina");
+    }
+
+}
+
+function actualizar_ventana(terror) {
+    //alert('actualizo');
+    location.reload();
 }

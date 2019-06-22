@@ -82,14 +82,14 @@ function leer_datos_maquina_historico(maquina) {
         } else {
             // doc.data() will be undefined in this case
             console.log("No existe el documento!");
-            error_grafica();
+            error_grafica("No existe");
         }
 
         console.log('lecturas historico fin');
 
     }).catch(function(error) {
         console.log("Error Obteniendo el documento:", error);
-        error_grafica();
+        error_grafica("Error");
     });
 }
 
