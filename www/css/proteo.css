@@ -73,15 +73,15 @@ html {
 }
 
 .item3 {
-   /*padding-right: 5px;*/
+    /*padding-right: 5px;*/
 }
 
 .modal-body.itemD {
-   position:relative;
+    position: relative;
 }
 
 .modal-body.itemD badge {
-   top: 0;
+    top: 0;
 }
 
 .cab_maq {
@@ -124,6 +124,10 @@ html {
 .lista {
     background-color: orange;
     color: black;
+}
+
+.trabaj {
+    background-color: #4080FF;
 }
 
 .incide.preventivo {

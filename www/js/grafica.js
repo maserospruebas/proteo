@@ -1,5 +1,6 @@
 ﻿var maquinas, maquinas_hist;
 var timer;
+var tipo = "movil"; //movil,web, se estable al principio al cargar la página
 
 maquinas_hist = {};
 
@@ -490,7 +491,7 @@ $(document).ready(function() {
       } //alert(maq);
     */
 
-    maq = getQueryVariable('maquina')
+    maq = getQueryVariable('maquina');
 
     if (!maq) {
         maq = '1680';
@@ -840,14 +841,26 @@ function getQueryVariable(variable) {
 }
 
 function cerrar_ventana() {
-    window.close();
+    if (tipo == "movil") {
+        window.location.href = "index.html";
+    } else {
+        window.close();
+    }
 }
 
 function error_grafica(terror) {
 
     if (terror == "Error") {
-        //alert("Error obteniendo datos, intentelo de nuevo => " + terror);
-        $(".dd-none1 h3").html("<div>Error obteniendo datos, intentelo de nuevo más tarde<br><span style='font-size:1rem'>Revise su conexión a internet</span></div><div class='p-2'><button type='button' class='btn btn-sm btn-primary' onclick='actualizar_ventana()'>Actualizar</button>");
+
+        if (tipo == "movil") {
+            var maquina = getQueryVariable('maquina');
+            var boton = '<a class="btn btn-primary" href="grafica.html?maquina=' + maquina + '" role="button">Actualizar</a>';
+            $(".dd-none1 h3").html("<div>Error obteniendo datos, intentelo de nuevo más tarde<br><span style='font-size:1rem'>Revise su conexión a internet</span></div><div class='p-2'>" + boton);
+        } else {
+            //alert("Error obteniendo datos, intentelo de nuevo => " + terror);
+            $(".dd-none1 h3").html("<div>Error obteniendo datos, intentelo de nuevo más tarde<br><span style='font-size:1rem'>Revise su conexión a internet</span></div><div class='p-2'><button type='button' class='btn btn-sm btn-primary' onclick='actualizar_ventana()'>Actualizar</button>");
+        }
+
     } else {
         //alert("La máquina no existe => " + terror);
         $(".dd-none1 h3").html("No se dispone de datos para esta máquina");
