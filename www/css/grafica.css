@@ -298,7 +298,8 @@ html {
     #nturno:before {
         content: "T: ";
     }
-    #nsalir button {
+    #nsalir button,
+    #nsalir a {
         top: 1px;
         padding: .15rem .3rem;
         font-size: .8rem;

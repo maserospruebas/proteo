@@ -863,7 +863,8 @@ function playController(e) {
     //marco modal para poder actualizarlo    
     $('#maquinaModal').attr("maquina", maquina);
 
-    $('#ver_historico').html('<a class="btn btn-primary" href="grafica.html?maquina=' + maquina + '" target="_blank" rel="noopener" role="button">Histórico</a>');
+    //$('#ver_historico').html('<a class="btn btn-primary" href="grafica.html?maquina=' + maquina + '" target="_blank" rel="noopener" role="button">Histórico</a>');
+    $('#ver_historico').html('<a class="btn btn-primary" href="grafica.html?maquina=' + maquina + '" role="button">Histórico</a>');
     $('#ver_historico .btn').click(function() { $('#maquinaModal').modal('hide'); });
 
 }
