@@ -842,10 +842,13 @@ function getQueryVariable(variable) {
 
 function cerrar_ventana() {
     if (tipo == "movil") {
-        window.location.href = "index.html";
+        //window.location.href = "index.html";
+        window.location.replace("index.html");
+        history.go(-1);
     } else {
         window.close();
     }
+    return false;
 }
 
 function error_grafica(terror) {
