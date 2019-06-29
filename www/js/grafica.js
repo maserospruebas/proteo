@@ -522,6 +522,11 @@ $(document).ready(function() {
 
     $('#nmaquina').html(maq);
 
+    $(window).resize(function() {
+        graficaBarras();
+        graficaPie();
+    });
+
 });
 
 function grafica(historico) {
@@ -798,6 +803,9 @@ function grafica(historico) {
         return tiempo;
     }
 
+    graficaPie();
+    graficaBarras();
+
     //Quito mensaje "leyendo datos" y muestro grafica
     $(".dd-none1").addClass('d-none');
     $(".dd-none2").removeClass('d-none');
@@ -874,4 +882,69 @@ function error_grafica(terror) {
 function actualizar_ventana(terror) {
     //alert('actualizo');
     location.reload();
+}
+
+function graficaBarras() {
+    google.charts.load('current', {
+        packages: ['corechart', 'bar']
+    });
+    google.charts.setOnLoadCallback(drawBasic);
+
+    function drawBasic() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['Estado', 'Minutos Turno', ],
+            ['Producción', 8175000],
+            ['Parada', 3792000],
+            ['Preparación', 2695000],
+            ['Incidencia', 2099000],
+            ['Lista', 1526000]
+        ]);
+
+        var options = {
+            title: 'Tiempo de Máquina',
+            chartArea: {
+                width: '50%'
+            },
+            hAxis: {
+                title: 'Tiempo',
+                minValue: 0
+            },
+            vAxis: {
+                title: 'Estado'
+            }
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+
+        chart.draw(data, options);
+    }
+}
+
+function graficaPie() {
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['Estado', 'Horas por turno'],
+            ['Producción', 11],
+            ['Parada', 2],
+            ['Preparación', 2],
+            ['Incidencia', 2],
+            ['Lista', 7]
+        ]);
+
+        var options = {
+            title: 'Estados Máquina'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+    }
+
 }
