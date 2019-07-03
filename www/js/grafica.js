@@ -3,6 +3,7 @@ var timer;
 var tipo = "movil"; //movil,web, se estable al principio al cargar la página
 var datosBarra = "undefined";
 var datosPie = "undefined";
+var segundosTurno;
 
 maquinas_hist = {};
 
@@ -564,6 +565,7 @@ function grafica(historico) {
     var popover = "";
     var tiempo = 0;
     var stiempo = "";
+    var testado;
 
     var cabecera = "<div class='nguia'> ESTADO</div>";
     cabecera += "<div class='tincidencia p-1'>inc 1</div>";
@@ -1016,6 +1018,7 @@ function graficaBarras(datos) {
             ['Incidencia', 21, 'color: #e5e4e2'], // CSS-style declaration
         ]);
         */
+        segundosTurno = segundosToHoras(segundosTurno);
 
         var data = google.visualization.arrayToDataTable(datos);
 
@@ -1039,7 +1042,7 @@ function graficaBarras(datos) {
         */
 
         var options = {
-            title: 'Tiempo de Máquina Turno',
+            title: 'Tiempo de Máquina Turno - ' + segundosTurno + 'h de trabajo.',
             chartArea: {
                 width: '62%'
             },
@@ -1125,7 +1128,7 @@ function graficaPie(datos) {
         var data = google.visualization.arrayToDataTable(datos.datos);
 
         var options = {
-            title: 'Estados Máquina - % minutos',
+            title: 'Estados Máquina - ' + segundosTurno + 'h de trabajo.',
             slices: [{
                 color: 'green',
                 textStyle: {
@@ -1211,25 +1214,28 @@ function preparaDatosGraficas(estados) {
     dataB = [];
     dataP = {};
     var slice = {};
-    //[];
+
+    segundosTurno = 0;
 
     for (var key in estados) {
+
+        segundosTurno += estados[key].tiempo;
 
         if (est == "") {
             est = key;
             dataB.push(['Estado', 'Minutos', {
                 role: 'style'
-            }]);
+            }, { role: 'annotation' }]);
             dataP.datos = [];
             dataP.slices = [];
             dataP.datos.push(['Estado', 'Horas por turno']);
         }
 
         if (Math.round(estados[key].tiempo / 60) < 1) {
-            dataB.push([estados[key].estado, Math.round(estados[key].tiempo * 100 / 60) / 100, estados[key].color]);
+            dataB.push([estados[key].estado, Math.round(estados[key].tiempo * 100 / 60) / 100, estados[key].color, segundosToHoras(estados[key].tiempo)]);
             dataP.datos.push([estados[key].estado, Math.round(estados[key].tiempo * 100 / 60) / 100]);
         } else {
-            dataB.push([estados[key].estado, Math.round(estados[key].tiempo / 60), estados[key].color]);
+            dataB.push([estados[key].estado, Math.round(estados[key].tiempo / 60), estados[key].color, segundosToHoras(estados[key].tiempo)]);
             dataP.datos.push([estados[key].estado, Math.round(estados[key].tiempo / 60)]);
         }
 
@@ -1245,5 +1251,31 @@ function preparaDatosGraficas(estados) {
     datosPie = dataP;
 
     //console.log(datosBarra);
-    console.log(datosPie);
+    //console.log(datosPie);
+
+}
+
+function segundosToHoras(segundos) {
+
+    var tiempo, minutos, horas;
+
+    tiempo = segundos;
+
+    if (tiempo < 60) {
+        tiempo = tiempo + 's';
+    } else {
+
+        minutos = Math.trunc((tiempo / 60));
+
+        horas = Math.trunc((minutos / 60));
+        minutos = minutos - (horas * 60);
+
+        minutos = minutos < 0 ? 0 : minutos;
+
+        minutos = minutos < 10 ? '0' + minutos : '' + minutos;
+
+        tiempo = horas + ':' + minutos;
+    }
+
+    return tiempo;
 }
