@@ -3,7 +3,7 @@ var timer;
 var tipo = "movil"; //movil,web, se estable al principio al cargar la página
 var datosBarra = "undefined";
 var datosPie = "undefined";
-var segundosTurno;
+var segundosTurno, ssegundosTurno;
 
 maquinas_hist = {};
 
@@ -1024,7 +1024,7 @@ function graficaBarras(datos) {
             ['Incidencia', 21, 'color: #e5e4e2'], // CSS-style declaration
         ]);
         */
-        segundosTurno = segundosToHoras(segundosTurno);
+        ssegundosTurno = segundosToHoras(segundosTurno);
 
         var data = google.visualization.arrayToDataTable(datos);
 
@@ -1048,7 +1048,7 @@ function graficaBarras(datos) {
         */
 
         var options = {
-            title: 'Tiempo de Máquina - ' + segundosTurno + 'h de trabajo.',
+            title: 'Tiempo de Máquina - ' + ssegundosTurno + 'h de trabajo.',
             chartArea: {
                 width: '62%'
             },
@@ -1134,7 +1134,7 @@ function graficaPie(datos) {
         var data = google.visualization.arrayToDataTable(datos.datos);
 
         var options = {
-            title: 'Estados Máquina (minutos) - ' + segundosTurno + 'h de trabajo.',
+            title: 'Estados Máquina (minutos) - ' + ssegundosTurno + 'h de trabajo.',
             slices: [{
                 color: 'green',
                 textStyle: {
