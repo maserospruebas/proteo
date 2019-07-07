@@ -623,12 +623,14 @@ function grafica(historico) {
         switch (estado) {
             case 'PRODUCCION':
                 color = 'green';
+                estados[estado].estado = 'Producción';
                 break;
             case 'PARADA':
                 color = 'gray';
                 break;
             case 'PREPARACION':
                 color = 'dodgerblue';
+                estados[estado].estado = 'Preparación';
                 break;
             case 'INCIDENCIA':
                 color = 'red';
@@ -668,6 +670,10 @@ function grafica(historico) {
     }
 
     cabecera = cabecera.replace(/INCIDENCIA<br>/g, "");
+
+    //Poner acentos por estetica
+    cabecera = cabecera.replace(/PRODUCCION/g, "PRODUCCIÓN");
+    cabecera = cabecera.replace(/PREPARACION/g, "PREPARACIÓN");
 
     console.log('cab----------------------', cab, '----------------------------');
     console.log(cabecera);
@@ -1042,7 +1048,7 @@ function graficaBarras(datos) {
         */
 
         var options = {
-            title: 'Tiempo de Máquina Turno - ' + segundosTurno + 'h de trabajo.',
+            title: 'Tiempo de Máquina - ' + segundosTurno + 'h de trabajo.',
             chartArea: {
                 width: '62%'
             },
@@ -1128,7 +1134,7 @@ function graficaPie(datos) {
         var data = google.visualization.arrayToDataTable(datos.datos);
 
         var options = {
-            title: 'Estados Máquina - ' + segundosTurno + 'h de trabajo.',
+            title: 'Estados Máquina (minutos) - ' + segundosTurno + 'h de trabajo.',
             slices: [{
                 color: 'green',
                 textStyle: {

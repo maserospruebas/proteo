@@ -668,7 +668,7 @@ function html_maquina(maquinas, maquina) {
     if (cod_of == undefined) {
         cod_of = ''
     } else {
-        cod_of = cod_of + '/' + operacion
+        cod_of = cod_of + '/' + operacion;
     }
 
     if (articulo == undefined) {
@@ -771,7 +771,7 @@ function datos_maquinas() {
 
 function last_update() {
 
-    var date = new Date;
+    var date = new Date();
     //date.setTime(result_from_Date_getTime);
 
     var seconds = date.getSeconds();
